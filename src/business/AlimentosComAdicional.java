@@ -1,4 +1,4 @@
-public class AlimentosComAdicional extends Alimentos implements ICustoAdicional, IComponenteExtra {
+public abstract class AlimentosComAdicional extends Alimentos implements ICustoAdicional, IComponenteExtra {
 
     public AlimentosComAdicional(Double preco) {
         super(preco);
@@ -15,5 +15,8 @@ public class AlimentosComAdicional extends Alimentos implements ICustoAdicional,
         // TODO Auto-generated method stub
         
     }
+
+    @Override
+    public abstract String descricao();
     
 }

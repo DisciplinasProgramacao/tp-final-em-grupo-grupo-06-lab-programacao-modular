@@ -1,9 +1,15 @@
 public class Clientes {
     private String nome;
     private String cpf;
-    private int categoria; 
+    private Categoria categoria; 
     
     // Cliente atribui uma nota a um determinado produto 
+
+    public Cliente(String nome, String cpf, Categoria categoria){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.categoria = categoria;
+    }
 
     public void atribuirNota(float notaProduto){
         

@@ -1,23 +1,30 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Pedidos {
     // Constantes
     private static final int MAX_PRODUTOS = 10;
     // Atributos
+    private Clientes cliente;
     private static int identificador;
     private LocalDateTime dataDeRealizacao;
     private float precoTotal;
     private float porcentagemDesconto;
-    private Produtos produtos[];
+
+    private ArrayList<Produtos> produtos;
     private int numProdutos = 0;
 
-    public Pedidos(LocalDateTime dataProduto){
-        this.identificador = ++numProdutos;
+    private float nota;
+
+    public Pedidos(Clientes cliente, LocalDateTime dataProduto){
+        this.cliente = cliente;
         this.dataDeRealizacao = dataProduto;
+        Pedidos.identificador = ++numProdutos;
     }
 
-    public Pedidos(LocalDateTime dataProduto, float desconto){
-        this.identificador = ++numProdutos;
+    public Pedidos(Clientes cliente, LocalDateTime dataProduto, float desconto){
+        this.cliente = cliente;
+        Pedidos.identificador = ++numProdutos;
         this.dataDeRealizacao = dataProduto;
         
     }
@@ -32,17 +39,19 @@ public class Pedidos {
 
     public void adicionaProduto(Produtos produto){
         if (numProdutos < MAX_PRODUTOS){
-            produtos[numProdutos] = produto;
+            produtos.add(produto);
             this.numProdutos++;
         }
     }
 
     // Retorna o preço total do pedido 
 
-    public void DefinePrecoTotal(){
-        for(int i = 0; i <= numProdutos ; i++){
-            this.precoTotal+= produtos[i].getPrecoBase();
-        }
+    public float DefinePrecoTotal(){
+        float precoTotal = produtos.stream()
+        .map(Produtos::getPrecoTotal)
+        .reduce(0, (n, m) -> n + m);
+
+        return precoTotal;
     }
 
 
@@ -60,12 +69,15 @@ public class Pedidos {
         "Preço total: " + getPrecoTotal() + "\n" +
         "Desconto aplicado: " + this.porcentagemDesconto + "%" + "\n");
         mostraPedidos();
+
     }
 
-    private void mostraPedidos() {
+    public void mostraPedidos() {
         for(int i = 0; i <= numProdutos; i++){
             System.out.println("Descrição: " + produtos[i].descricao() + "\n" + "Preço base: " + produtos[i].getPrecoBase());
         }
+    
+
     }
     
 }

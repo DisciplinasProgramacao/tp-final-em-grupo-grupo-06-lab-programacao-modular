@@ -1,5 +1,6 @@
 public abstract class Produtos {
     private double precoBase;
+    private double precoTotal;
     private int valorReajusteAnual;
 
     // Construtor
@@ -14,13 +15,15 @@ public abstract class Produtos {
         return precoBase;
     }
 
+    public double getPrecoTotal(double valorAdicionais){
+        return precoBase + valorAdicionais;
+    }
+
     // Reajusta preço do produto 
 
     public void reajustarPrecoAnual(){
         this.precoBase = getPrecoBase() + (getPrecoBase() * this.valorReajusteAnual)/100;
     }
 
-    // Mostra descrição do produto
 
-    public abstract String descricao();
 }

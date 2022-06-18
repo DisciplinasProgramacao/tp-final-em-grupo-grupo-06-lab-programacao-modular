@@ -32,7 +32,11 @@ public class Pedidos {
     // Getters
 
     public float getPrecoTotal() {
-        return precoTotal;
+        float precoTotal = produtos.stream() // !!!!!!!!!!!!!!
+        .map(p -> p.getPrecoTotal(valorAdicionais))
+        .reduce(0, (n, m) -> n + m);
+
+        this.precoTotal = precoTotal;
     }
 
     // Adiciona produto a pedidos
@@ -43,17 +47,6 @@ public class Pedidos {
             this.numProdutos++;
         }
     }
-
-    // Retorna o preço total do pedido 
-
-    public float DefinePrecoTotal(){
-        float precoTotal = produtos.stream()
-        .map(Produtos::getPrecoTotal)
-        .reduce(0, (n, m) -> n + m);
-
-        return precoTotal;
-    }
-
 
     // Aplica o desconto, se houver, no subtotal do pedido
 
@@ -74,7 +67,7 @@ public class Pedidos {
 
     public void mostraPedidos() {
         for(int i = 0; i <= numProdutos; i++){
-            System.out.println("Descrição: " + produtos[i].descricao() + "\n" + "Preço base: " + produtos[i].getPrecoBase());
+            System.out.println("Descrição: " + produtos.get(i).descricao() + "\n" + "Preço base: " + produtos.get(i).getPrecoBase());
         }
     
 

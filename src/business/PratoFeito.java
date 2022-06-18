@@ -4,7 +4,8 @@ public abstract class PratoFeito extends Alimentos {
         super(15.0);
     }
 
-    @Override
-    public abstract String descricao();
+    public String getDescricao() {
+        return "Prato feito";
+    }
     
 }

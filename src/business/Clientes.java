@@ -5,7 +5,7 @@ public class Clientes {
     
     // Cliente atribui uma nota a um determinado produto 
 
-    public Cliente(String nome, String cpf, Categoria categoria){
+    public Clientes(String nome, String cpf, Categoria categoria){
         this.nome = nome;
         this.cpf = cpf;
         this.categoria = categoria;

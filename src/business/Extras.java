@@ -1,10 +1,16 @@
 public enum Extras {
 
-    borda_recheada(8), // Apenas para pizza
-    pao_artesanal(2); // Apenas para sanduíche
+    BORDARECHEADA(8), 
+    PAOARTESANAL(2);
 
-    Extras(){
+    private double preco;
 
+    private Extras(double valor){
+        this.preco = valor;
     }
-    
+
+    public double preco(){
+        return this.preco;
+    }
+
 }

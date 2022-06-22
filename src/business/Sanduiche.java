@@ -8,14 +8,15 @@ public class Sanduiche extends Alimentos implements AlimentosComAdicional, Alime
     }
 
     @Override
-    public String getDescricao() {
-        return "Sanduíche";
+    public String descricao() {
+        return "Sanduíche - R$12,00;";
     }
 
     @Override
     public double getPreco() {
         return 12;
     }
+
 
     
 }

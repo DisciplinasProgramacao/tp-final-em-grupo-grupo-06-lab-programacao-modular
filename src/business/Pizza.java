@@ -8,8 +8,8 @@ public class Pizza extends Alimentos implements AlimentosComAdicional, Alimentos
     }
 
     @Override
-    public String getDescricao() {
-        return "Pizza da casa";
+    public String descricao() {
+        return "Pizza da casa - R$25,00;";
     }
 
     @Override

@@ -7,8 +7,8 @@ public class Ovo extends AdicionaisDecorator{
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Ovo (2)";
+	public String descricao() {
+		return super.descricao() + "Ovo - R$ 2,00;";
 	}
 
 	@Override

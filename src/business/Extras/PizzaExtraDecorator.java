@@ -16,8 +16,8 @@ public abstract class PizzaExtraDecorator implements AlimentosComExtra {
     }
 
     @Override
-    public String getDescricao(){
-        return pizza.getDescricao();
+    public String descricao(){
+        return pizza.descricao();
     }
     
 }

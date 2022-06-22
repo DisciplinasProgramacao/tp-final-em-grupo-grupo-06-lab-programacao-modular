@@ -7,8 +7,8 @@ public class Pepperoni extends AdicionaisDecorator {
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Pepperoni (4)";
+	public String descricao() {
+		return super.descricao() + "Pepperoni - R$ 4,00;";
 	}
 
 	@Override

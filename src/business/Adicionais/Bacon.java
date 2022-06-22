@@ -7,8 +7,8 @@ public class Bacon extends AdicionaisDecorator {
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Bacon (3)";
+	public String descricao() {
+		return super.descricao() + ", Bacon - R$3,00;";
 	}
 
 	@Override

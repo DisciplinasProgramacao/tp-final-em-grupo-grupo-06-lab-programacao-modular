@@ -7,8 +7,8 @@ public class PaoArtesanal extends SanduicheExtraDecorator {
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Pão Artesanal (2)";
+	public String descricao() {
+		return super.descricao() + "Pão Artesanal - R$ 2,00;";
 	}
 
 	@Override

@@ -1,11 +1,11 @@
-public abstract class PratoFeito extends Alimentos {
+public class PratoFeito extends Alimentos {
 
     public PratoFeito(){
         super(15.0);
     }
 
-    public String getDescricao() {
-        return "Prato feito";
+    public String descricao() {
+        return "Prato feito - R$15,00;";
     }
     
 }

@@ -1,9 +1,9 @@
 public enum Categoria {
 
     BRANCO(0),
-    PRATA(5),
-    PRETO(10),
-    FV(20);
+    PRATA(0.05),
+    PRETO(0.1),
+    FV(0.2);
 
     private double desconto;
 

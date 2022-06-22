@@ -7,8 +7,8 @@ public class BatataPalha extends AdicionaisDecorator {
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Batata Palha (2)";
+	public String descricao() {
+		return super.descricao() + ", Batata Palha - R$ 2,00;";
 	}
 
 	@Override

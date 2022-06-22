@@ -7,8 +7,8 @@ public class Palmito extends AdicionaisDecorator {
     }
 
     @Override
-    public String getDescricao() {
-        return super.getDescricao() + ", Palmito (3)";
+    public String descricao() {
+        return super.descricao() + "Palmito R$3,00;";
     }
 
     @Override

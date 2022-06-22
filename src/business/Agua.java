@@ -5,7 +5,7 @@ public class Agua extends Bebidas{
     }
 
     public String descricao(){
-        return "Água mineral sem gás";
+        return "Água mineral sem gás - R$2,00;";
     }
     
 }

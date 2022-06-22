@@ -5,7 +5,7 @@ public class Cerveja extends Bebidas{
     }
 
     public String descricao(){
-        return "Cerveja gelada";
+        return "Cerveja gelada - R$8,00;";
     }
     
 }

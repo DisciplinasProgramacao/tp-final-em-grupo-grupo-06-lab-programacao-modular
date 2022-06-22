@@ -5,5 +5,4 @@ public abstract class Bebidas extends Produtos {
     }
 
     public abstract String descricao();
-    
 }

@@ -1,7 +1,13 @@
+import java.util.ArrayList;
+
+import Adicionais.AlimentosComAdicional;
+
 public abstract class Produtos {
     private double precoBase;
     private double precoTotal;
-    private int valorReajusteAnual;
+    private double valorReajusteAnual;
+
+    private ArrayList<AlimentosComAdicional> adicionais;
 
     // Construtor
 
@@ -15,8 +21,20 @@ public abstract class Produtos {
         return precoBase;
     }
 
-    public double getPrecoTotal(double valorAdicionais){
-        return precoBase + valorAdicionais;
+    public double getPrecoTotal(){
+        return precoBase + getAdicionais();
+    }
+
+    public double getAdicionais(){
+        return adicionais.stream()
+        .mapToDouble(AlimentosComAdicional::getPreco)
+        .reduce(0, (n,m) -> n + m);
+    }
+
+    // Setters
+
+    public void setValorReajusteAnual(double valorReajusteAnual) {
+        this.valorReajusteAnual = valorReajusteAnual;
     }
 
     // Reajusta preço do produto 
@@ -24,6 +42,10 @@ public abstract class Produtos {
     public void reajustarPrecoAnual(){
         this.precoBase = getPrecoBase() + (getPrecoBase() * this.valorReajusteAnual)/100;
     }
+    
+    // Descrição do produto
+
+    public abstract String descricao();
 
 
 }

@@ -7,8 +7,8 @@ public class BordaRecheada extends PizzaExtraDecorator {
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Borda Recheada (8)";
+	public String descricao() {
+		return super.descricao() + "Borda Recheada - R$8,00;";
 	}
 
 	@Override

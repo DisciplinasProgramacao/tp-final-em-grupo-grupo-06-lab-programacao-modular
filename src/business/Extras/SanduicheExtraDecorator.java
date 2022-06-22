@@ -16,8 +16,8 @@ public abstract class SanduicheExtraDecorator implements AlimentosComExtra {
     }
 
     @Override
-    public String getDescricao(){
-        return sanduiche.getDescricao();
+    public String descricao(){
+        return sanduiche.descricao();
     }
     
 }

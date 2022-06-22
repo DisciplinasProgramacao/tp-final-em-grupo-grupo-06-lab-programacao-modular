@@ -7,8 +7,8 @@ public class Queijo extends AdicionaisDecorator {
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Queijo (2)";
+	public String descricao() {
+		return super.descricao() + "Queijo - R$2,00;";
 	}
 
 	@Override

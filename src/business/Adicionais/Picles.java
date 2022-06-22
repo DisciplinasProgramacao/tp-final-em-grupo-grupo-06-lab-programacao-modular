@@ -7,8 +7,8 @@ public class Picles extends AdicionaisDecorator {
 	}
 
 	@Override
-	public String getDescricao() {
-		return super.getDescricao() + ", Picles (2)";
+	public String descricao() {
+		return super.descricao() + "Picles - R$2,00;";
 	}
 
 	@Override

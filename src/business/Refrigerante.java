@@ -5,7 +5,7 @@ public class Refrigerante extends Bebidas {
     }
 
     public String descricao(){
-        return "Refrigerante";
+        return "Refrigerante - R$5,00;";
     }
     
 }

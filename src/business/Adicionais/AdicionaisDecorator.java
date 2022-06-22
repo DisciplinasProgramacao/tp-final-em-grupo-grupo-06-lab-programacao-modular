@@ -16,8 +16,8 @@ public abstract class AdicionaisDecorator implements AlimentosComAdicional {
     }
 
     @Override
-    public String getDescricao(){
-        return alimento.getDescricao();
+    public String descricao(){
+        return alimento.descricao();
     }
     
 }

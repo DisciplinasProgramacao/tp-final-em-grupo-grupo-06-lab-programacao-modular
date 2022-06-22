@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public class aplicacao{
+public class Aplicacao{
 public static void main(String args[]){
     Clientes cliente = new Clientes("Kanye West", "123456");
     cliente.setCategoria(Categoria.PRATA);
@@ -22,6 +22,8 @@ public static void main(String args[]){
     cliente.solicitarExtratoCompleto(pedido);
 
     // Checar pipelines de Notas De Pedido e Extrato Completo
+    
+    cliente.mostrarAvaliacaoMedia();
 
 
 }

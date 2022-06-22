@@ -54,8 +54,12 @@ public class Clientes {
     // Mostra extrato completo de um pedido específico
 
     public void solicitarExtratoCompleto(Pedidos pedido){
-        Pedidos pedidoEncontrado = (Pedidos) pedidos.stream()
-        .filter(n -> n.equals(pedido));
+        Pedidos pedidoEncontrado = (Pedidos) pedidos.get(pedidos.indexOf(pedido));
+        
+        /* 
+        .stream()
+        .filter(n -> n.equals(pedido))
+        .get();*/
 
         pedidoEncontrado.gerarNotaDeCompra();
     }

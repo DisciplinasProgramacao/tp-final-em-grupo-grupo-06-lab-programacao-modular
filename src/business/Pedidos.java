@@ -6,25 +6,27 @@ public class Pedidos {
     // Constantes
     private static final int MAX_PRODUTOS = 10;
     // Atributos
-    private static int identificador;
+    private static int auxID = 0;
+    private int identificador;
     private Clientes cliente;
     private LocalDateTime dataDeRealizacao;
     private double precoTotal;
     private double porcentagemDesconto;
     private double nota;
 
-    List<Produtos> produtos = new ArrayList(MAX_PRODUTOS);
-    private int numProdutos = 0;
+    List<Produtos> produtos = new ArrayList<Produtos>(MAX_PRODUTOS);
 
     public Pedidos(Clientes cliente, LocalDateTime dataProduto) {
         this.cliente = cliente;
         this.dataDeRealizacao = dataProduto;
-        Pedidos.identificador = ++numProdutos;
+        this.identificador = ++auxID;
+
+        cliente.pedidos.add(this);
     }
 
     public Pedidos(Clientes cliente, LocalDateTime dataProduto, double desconto) {
         this.cliente = cliente;
-        Pedidos.identificador = ++numProdutos;
+        this.identificador = ++auxID;
         this.dataDeRealizacao = dataProduto;
 
     }
@@ -52,20 +54,17 @@ public class Pedidos {
         this.nota = nota;
     }
 
-    // Aplica o desconto, se houver, no subtotal do pedido
-
-    public void aplicarDesconto() {
-        this.precoTotal = getPrecoTotal() + (getPrecoTotal() * this.porcentagemDesconto) / 100;
-    }
-
     // Gera a nota de compra
 
     public void gerarNotaDeCompra() {
         System.out.println("Id: " + this.identificador + "\n" +
                 "Data de realização: " + this.dataDeRealizacao + "\n" +
                 "Preço total: " + getPrecoTotal() + "\n" +
-                "Desconto aplicado: " + this.porcentagemDesconto + "%" + "\n");
+                "Desconto aplicado: " + this.cliente.categoria.desconto() * 100 + "%" + "\n");
+        
+        System.out.println("========= Produtos do Pedido ==========");
         mostraPedidos();
+        System.out.println("=======================================");
 
     }
 
@@ -80,7 +79,7 @@ public class Pedidos {
     // Mostra cada produto no pedido 
 
     public void mostraPedidos() {
-        for (int i = 0; i <= numProdutos; i++) {
+        for (int i = 0; i <= produtos.size() - 1; i++) {
             System.out.println("Descrição: " + produtos.get(i).descricao() + "\n" + "Preço base: "
                     + produtos.get(i).getPrecoBase());
         }

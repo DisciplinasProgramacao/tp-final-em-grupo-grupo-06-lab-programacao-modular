@@ -1,17 +1,18 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Clientes {
     private String nome;
     private String cpf;
     protected Categoria categoria; 
 
-    private ArrayList<Pedidos> pedidos;
+    List<Pedidos> pedidos = new ArrayList<Pedidos>();
     
-    // Cliente atribui uma nota a um determinado produto 
 
     public Clientes(String nome, String cpf){
         this.nome = nome;
-        this.cpf = cpf;;
+        this.cpf = cpf;
+        this.categoria = Categoria.BRANCO;
     }
 
 
@@ -29,13 +30,6 @@ public class Clientes {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    // Cliente atribui uma nota ao pedido
-
-    public void atribuirNota(Pedidos pedido, double notaPedido){
-        pedido.setNota(notaPedido);
-        
     }
 
     // Mostra nota média das avaliações do cliente

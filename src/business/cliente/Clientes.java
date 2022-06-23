@@ -1,14 +1,17 @@
+package cliente;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import pedido.Pedidos;
 import produtos.Categoria;
 
-public class Clientes {
+public class Clientes implements Serializable{
     private String nome;
     private String cpf;
     protected Categoria categoria; 
 
-    List<Pedidos> pedidos = new ArrayList<Pedidos>();
+    private List<Pedidos> pedidos = new ArrayList<Pedidos>();
     
 
     public Clientes(String nome, String cpf){
@@ -17,6 +20,12 @@ public class Clientes {
         this.categoria = Categoria.BRANCO;
     }
 
+    public void addPedido(Pedidos pedido){
+        this.pedidos.add(pedido);
+    }
+    public List<Pedidos> getProdutos(){
+        return this.pedidos;
+    }
 
     /**
      * Método utilizado para obter o nome do cliente
@@ -43,6 +52,10 @@ public class Clientes {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Categoria getCategoria(){
+        return this.categoria;
     }
 
     /**

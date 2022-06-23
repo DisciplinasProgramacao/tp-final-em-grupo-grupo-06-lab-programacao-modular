@@ -1,23 +1,31 @@
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 import Adicionais.Adicional;
+import cliente.Clientes;
+import dao.ClientesDAO;
+import dao.DAO;
+import pedido.Pedidos;
 import produtos.Agua;
 import produtos.Categoria;
 import produtos.Cerveja;
 import produtos.Pizza;
 import produtos.Refrigerante;
 import produtos.Sanduiche;
+import utils.Utilitario;
+
 
 public class Main {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         Clientes cliente = new Clientes("Kanye West", "123456");
         cliente.setCategoria(Categoria.PRATA);
 
         Pedidos pedido = new Pedidos(cliente, LocalDateTime.now());
-        pedido.produtos.add(new Cerveja());
-        pedido.produtos.add(new Refrigerante());
-        pedido.produtos.add(new Agua());
+        
+        pedido.getProdutos().add(new Cerveja());
+        pedido.getProdutos().add(new Refrigerante());
+        pedido.getProdutos().add(new Agua());
         Pizza pizza = new Pizza();
         pizza.adicionarAdicional(Adicional.OVO);
         pizza.adicionarAdicional(Adicional.BACON);
@@ -26,7 +34,7 @@ public class Main {
         pizza.adicionarAdicional(Adicional.PEPERONI);
         pizza.adicionarAdicional(Adicional.PICLES);
         pizza.adicionarAdicional(Adicional.QUEIJO);
-        pedido.produtos.add(pizza);
+        pedido.getProdutos().add(pizza);
 
         Sanduiche sanduiche = new Sanduiche();
         sanduiche.adicionarAdicional(Adicional.OVO);
@@ -36,15 +44,16 @@ public class Main {
         sanduiche.adicionarAdicional(Adicional.PEPERONI);
         sanduiche.adicionarAdicional(Adicional.PICLES);
         sanduiche.adicionarAdicional(Adicional.QUEIJO);
-        pedido.produtos.add(sanduiche);
-
+        pedido.getProdutos().add(sanduiche);
+        cliente.addPedido(pedido);
+        
         Pizza pizzaExtra = new Pizza();
         pizzaExtra.addExtra();
-        pedido.produtos.add(pizzaExtra);
+        pedido.getProdutos().add(pizzaExtra);
 
         Sanduiche sanduicheExtra = new Sanduiche();
         sanduicheExtra.addExtra();
-        pedido.produtos.add(sanduicheExtra);
+        pedido.getProdutos().add(sanduicheExtra);
 
 
         // pedido.produtos.add();
@@ -55,6 +64,20 @@ public class Main {
         System.out.println(pedido.gerarNotaDeCompra());
         pedido.setNota(7);
 
+        DAO<Clientes, String> clientesDao = new ClientesDAO("data/Clientes.bin");
+
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+        clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
         /*
          * cliente.solicitarExtratoCompleto(pedido);
          * 
@@ -62,6 +85,8 @@ public class Main {
          * 
          * cliente.mostrarAvaliacaoMedia();
          */
+
+         
 
     }
 }

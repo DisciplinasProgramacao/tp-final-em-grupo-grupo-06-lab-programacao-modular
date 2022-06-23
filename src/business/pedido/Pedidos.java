@@ -1,9 +1,11 @@
+package pedido;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import cliente.Clientes;
 import produtos.Produtos;
 
 public class Pedidos {
@@ -18,16 +20,17 @@ public class Pedidos {
     private double porcentagemDesconto;
     private double nota;
 
-    List<Produtos> produtos = new ArrayList<Produtos>(MAX_PRODUTOS);
+    private List<Produtos> produtos = new ArrayList<Produtos>(MAX_PRODUTOS);
 
     public Pedidos(Clientes cliente, LocalDateTime dataProduto) {
         this.cliente = cliente;
         this.dataDeRealizacao = dataProduto;
         this.identificador = ++auxID;
-
-        cliente.pedidos.add(this);
     }
 
+    public List<Produtos> getProdutos(){
+        return this.produtos;
+    }
     public Pedidos(Clientes cliente, LocalDateTime dataProduto, double desconto) {
         this.cliente = cliente;
         this.identificador = ++auxID;
@@ -45,7 +48,7 @@ public class Pedidos {
                 .mapToDouble(p -> p.getPrecoTotal())
                 .reduce(0, (n, m) -> n + m);
         
-        precoTotal = precoTotal - (precoTotal * cliente.categoria.desconto());
+        precoTotal = precoTotal - (precoTotal * cliente.getCategoria().desconto());
 
         this.precoTotal = precoTotal;
         return precoTotal;
@@ -81,7 +84,7 @@ public class Pedidos {
         "| %-25s %-10s |\n| %-25s %-10s |\n| %-25s %-10s |\n| %-35s |",
         "Data de Realização:",this.dataDeRealizacao.format(dtf),
          "Preço total:",getPrecoTotal(),
-          "Desconto aplicado:",this.cliente.categoria.desconto()*100+"%",
+          "Desconto aplicado:",this.cliente.getCategoria().desconto()*100+"%",
           "------------------------------------"
         
         );
@@ -116,6 +119,10 @@ public class Pedidos {
 
         return str;
 
+    }
+
+    public int getId(){
+        return this.identificador;
     }
 
 }

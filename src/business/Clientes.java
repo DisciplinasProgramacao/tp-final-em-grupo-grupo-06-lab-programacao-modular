@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import produtos.Categoria;
+
 public class Clientes {
     private String nome;
     private String cpf;

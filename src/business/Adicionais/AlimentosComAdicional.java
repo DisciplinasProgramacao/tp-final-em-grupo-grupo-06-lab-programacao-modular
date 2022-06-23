@@ -1,8 +1,15 @@
 package Adicionais;
 
-public interface AlimentosComAdicional {
+import produtos.Alimentos;
 
-    public double getPreco();
-    public String descricao();
+public interface AlimentosComAdicional  {
+
+   
+
+    public abstract String descricao();
+    public abstract double getPreco();
+
+    public double getAdicionais();
+    public void adicionarAdicional(Adicional adicional);
 
 }

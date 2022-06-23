@@ -1,3 +1,4 @@
+package produtos;
 public abstract class Bebidas extends Produtos {
 
     public Bebidas(double preco){

@@ -1,6 +1,10 @@
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
+import produtos.Produtos;
 
 public class Pedidos {
     // Constantes
@@ -56,33 +60,41 @@ public class Pedidos {
 
     // Gera a nota de compra
 
-    public void gerarNotaDeCompra() {
-        System.out.println("Id: " + this.identificador + "\n" +
-                "Data de realização: " + this.dataDeRealizacao + "\n" +
-                "Preço total: " + getPrecoTotal() + "\n" +
-                "Desconto aplicado: " + this.cliente.categoria.desconto() * 100 + "%" + "\n");
+    public String gerarNotaDeCompra() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String str = String.format(
+            
+        "| %-25s %-10s |\n| %-25s %-10s |\n| %-25s %-10s |\n| %-35s |",
+        "Data de Realização:",this.dataDeRealizacao.format(dtf),
+         "Preço total:",getPrecoTotal(),
+          "Desconto aplicado:",this.cliente.categoria.desconto()*100+"%",
+          "------------------------------------"
         
-        System.out.println("========= Produtos do Pedido ==========");
-        mostraPedidos();
-        System.out.println("=======================================");
+        );
+
+        str += mostraPedidos();
+
+        return str;
 
     }
 
     // Gera a nota de compra simplificada
 
-    public void gerarNotaDeCompraSimplificada() {
-        System.out.println("Id: " + this.identificador + "\n" +
-                "Data de realização: " + this.dataDeRealizacao + "\n"
-               );
+    public  String gerarNotaDeCompraSimplificada() {
+        String str = "Id: " + this.identificador + "\n" +
+                "Data de realização: " + this.dataDeRealizacao + "\n";
+                return str;
     }
 
     // Mostra cada produto no pedido 
 
-    public void mostraPedidos() {
+    public String mostraPedidos() {
+        String str = "\n";
         for (int i = 0; i <= produtos.size() - 1; i++) {
-            System.out.println("Descrição: " + produtos.get(i).descricao() + "\n" + "Preço base: "
-                    + produtos.get(i).getPrecoBase());
+            str += produtos.get(i).descricao();
         }
+
+        return str;
 
     }
 

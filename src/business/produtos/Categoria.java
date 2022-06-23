@@ -1,3 +1,4 @@
+package produtos;
 public enum Categoria {
 
     BRANCO(0),

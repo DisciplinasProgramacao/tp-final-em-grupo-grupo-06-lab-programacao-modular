@@ -1,3 +1,4 @@
+package produtos;
 public abstract class Alimentos extends Produtos {
 
     public Alimentos(Double preco) {

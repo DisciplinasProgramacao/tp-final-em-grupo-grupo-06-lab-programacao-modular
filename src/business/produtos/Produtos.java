@@ -1,6 +1,8 @@
+package produtos;
 import java.util.ArrayList;
 import java.util.List;
 
+import Adicionais.Adicional;
 import Adicionais.AlimentosComAdicional;
 
 public abstract class Produtos {
@@ -8,7 +10,7 @@ public abstract class Produtos {
     private double precoTotal;
     private double valorReajusteAnual;
 
-    List<AlimentosComAdicional> adicionais = new ArrayList<AlimentosComAdicional>();
+    List<Adicional> adicionais = new ArrayList<Adicional>();
 
     // Construtor
 
@@ -24,18 +26,10 @@ public abstract class Produtos {
 
     // tá dando erro nessa porra aqui
     public double getPrecoTotal() {
-        return precoBase + getAdicionais();
+        return precoBase;
     }
 
-    public double getAdicionais() {
-        if (adicionais.isEmpty()) {
-            return 0;
-        } else {
-            return adicionais.stream()
-                    .mapToDouble(AlimentosComAdicional::getPreco)
-                    .reduce(0, (n, m) -> n + m);
-        }
-    }
+   
 
     // Setters
 

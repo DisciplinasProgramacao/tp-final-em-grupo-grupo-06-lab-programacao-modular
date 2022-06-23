@@ -1,9 +1,18 @@
 package produtos;
 public class Agua extends Bebidas{
+    public static final double VALOR = 2;
 
+     /**
+     * Construtor Agua
+     */
     public Agua(){
-        super(2.0);
+        super(VALOR);
     }
+
+     /**
+     * Método utilizado para obter a descrição do produto
+     * @return a descrição do produto formatada
+     */
 
     public String descricao(){
         return String.format("| %-25s %-10s |\n",

@@ -6,9 +6,19 @@ public enum PizzaExtra {
 
     private double preco;
 
+    /**
+     * Construtor PizzaExtra
+     * @param preco : Preço do componente extra da pizza
+     */
+
     private PizzaExtra(double preco){
         this.preco = preco;
     }
+
+    /**
+     * Método utilizado para obter o preço do componente extra
+     * @return o preço do componente extra da pizza
+     */
 
     public double getPreco(){
         return this.preco;

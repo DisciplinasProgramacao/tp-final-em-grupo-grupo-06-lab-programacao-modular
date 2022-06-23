@@ -9,11 +9,22 @@ import produtos.extras.SanduicheExtra;
 
 public class Sanduiche extends Alimentos implements AlimentosComAdicional, produtos.extras.AlimentosComExtra {
 
+    public static final double VALOR = 12;
+
     private List<SanduicheExtra> extras = new ArrayList<SanduicheExtra>();
 
+    /**
+     * Construtor Sanduíche
+     */
+
     public Sanduiche() {
-        super(12.0);
+        super(VALOR);
     }
+
+    /**
+     * Método utilizado para obter a descrição do produto
+     * @return string contendo a descrição do produto
+     */
 
     @Override
     public String descricao() {
@@ -36,10 +47,19 @@ public class Sanduiche extends Alimentos implements AlimentosComAdicional, produ
         return str;
     }
 
-    @Override
+    /**
+     * Método utilizado para obter o preço base do produto
+     * @return preço base do produto
+     */
+
     public double getPreco() {
-        return 12;
+        return VALOR;
     }
+
+    /**
+     * Método utilizado para obter a soma do preço de todos os adicionais do Sanduiche
+     * @return um valor double contendo o valor total dos adicionais
+     */
 
     public double getAdicionais() {
         if (adicionais.isEmpty()) {
@@ -51,15 +71,30 @@ public class Sanduiche extends Alimentos implements AlimentosComAdicional, produ
         }
     }
 
+    /**
+     * Método utilizado para obter o preço total do sanduiche (considerando os adicionais)
+     * @return double contendo o preço total
+     */
+
     @Override
     public double getPrecoTotal() {
         return this.getPrecoBase() + getAdicionais() + getExtra();
     }
 
+    /**
+     * Método utilizado para adicionar um componente adicional ao sanduiche
+     * @param adicional : Adicional do sanduiche
+     */
+
     @Override
     public void adicionarAdicional(Adicional adicional) {
         this.adicionais.add(adicional);
     }
+
+    /**
+     * Método utilizado para obter a soma do preço de todos os extras do sanduiche
+     * @return um valor double contendo o valor total dos extras
+     */
 
     @Override
     public double getExtra() {
@@ -71,6 +106,10 @@ public class Sanduiche extends Alimentos implements AlimentosComAdicional, produ
                     .reduce(0, (n, m) -> n + m);
         }
     }
+
+    /**
+     * Método utilizado para adicionar componente extra à Pizza
+     */
 
     @Override
     public void addExtra() {

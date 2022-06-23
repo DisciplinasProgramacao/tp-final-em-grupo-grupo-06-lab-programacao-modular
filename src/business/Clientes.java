@@ -18,34 +18,53 @@ public class Clientes {
     }
 
 
-    // Getters
+    /**
+     * Método utilizado para obter o nome do cliente
+     * @return o nome do cliente
+     */
 
     public String getNome() {
         return nome;
     }
 
+    /**
+     * Método utilizado para obter o cpf do cliente
+     * @return o cpf do cliente
+     */
+
     public String getCpf() {
         return cpf;
     }
 
-    // Setters
+    /**
+     * Método utilizado para definir categoria do cliente
+     * @param categoria : Categoria a que o cliente pertence
+     */
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
-    // Mostra nota média das avaliações do cliente
+    /**
+     * Método utilizado para obter a avaliação média das notas que o cliente atribuiu aos seus pedidos
+     * @return uma string contendo a nota média
+     */
 
-    public void mostrarAvaliacaoMedia(){
+    public String mostrarAvaliacaoMedia(){
+        String str;
         double notaMedia = (double) pedidos.stream()
         .mapToDouble(Pedidos::getNota)
         .average()
         .orElse(Double.NaN);
 
-        System.out.println("Avaliação média: " + notaMedia);
+        str = "Avaliação média: " + notaMedia;
+        
+        return str;
     }
 
-    // Mostra extrato simplificado de todos os seus pedidos
+    /**
+     * Método utilizado para obter um extrato simplificado de todos os pedidos do cliente
+     */
 
     public void solicitarExtratoSimplificado(){
         pedidos.stream()
@@ -53,7 +72,10 @@ public class Clientes {
 
     }
 
-    // Mostra extrato completo de um pedido específico
+    /**
+     * Método utilizado para obter o extrato completo de um determinado pedido
+     * @param pedido : pedido específico para obter extrato
+     */
 
     public void solicitarExtratoCompleto(Pedidos pedido){
         Pedidos pedidoEncontrado = (Pedidos) pedidos.get(pedidos.indexOf(pedido));

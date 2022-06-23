@@ -35,7 +35,10 @@ public class Pedidos {
 
     }
 
-    // Getters
+    /**
+     * Método utilizado para obter o preço total do pedido
+     * @return o preço total do pedido
+     */
 
     public double getPrecoTotal() {
         double precoTotal = produtos.stream()
@@ -48,17 +51,28 @@ public class Pedidos {
         return precoTotal;
     }
 
+    /**
+     * Método utilizado para obter a nota do pedido
+     * @return a nota que o cliente atribuiu ao pedido
+     */
+
     public double getNota() {
         return nota;
     }
 
-    // Setters 
+    /**
+     * Método utilizado para definir uma nota ao pedido
+     * @param nota : Nota que o cliente deseja atribuir ao pedido
+     */
 
     public void setNota(double nota) {
         this.nota = nota;
     }
 
-    // Gera a nota de compra
+    /**
+     * Método utilizado para gerar nota de compra (recibo) do pedido
+     * @return nota de compra do cliente contendo data do pedido, desconto aplicado e todos os produtos do pedido
+     */
 
     public String gerarNotaDeCompra() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -78,7 +92,10 @@ public class Pedidos {
 
     }
 
-    // Gera a nota de compra simplificada
+    /**
+     * Método utilizado para obter a nota de compra simplificada (recibo), contendo identificador do pedido e data de realização
+     * @return string com id e data do pedido
+     */
 
     public  String gerarNotaDeCompraSimplificada() {
         String str = "Id: " + this.identificador + "\n" +
@@ -86,7 +103,10 @@ public class Pedidos {
                 return str;
     }
 
-    // Mostra cada produto no pedido 
+    /**
+     * Método utilizado para mostrar todos os produtos contidos no pedido
+     * @return string contendo descrição de todos os produtos do pedido
+     */
 
     public String mostraPedidos() {
         String str = "\n";

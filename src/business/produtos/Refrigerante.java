@@ -1,9 +1,19 @@
 package produtos;
 public class Refrigerante extends Bebidas {
+    public static final double VALOR = 5;
+
+    /**
+     * Construtor Refrigerante
+     */
 
     public Refrigerante(){
-        super(5.0);
+        super(VALOR);
     }
+
+    /**
+     * Método utilizado para obter a descrição do produto
+     * @return a descrição do produto formatada
+     */
 
     public String descricao(){
         return String.format("| %-25s %-10s |\n",

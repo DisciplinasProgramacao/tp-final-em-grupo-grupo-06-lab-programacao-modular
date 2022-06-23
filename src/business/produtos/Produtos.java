@@ -18,32 +18,44 @@ public abstract class Produtos {
         this.precoBase = preco;
     }
 
-    // Getters
-
+    /**
+     * Método utilizado para obter o preço base do produto (sem adicionais)
+     * @return o preço base do produto
+     */
     public double getPrecoBase() {
         return precoBase;
     }
 
-    // tá dando erro nessa porra aqui
+    /**
+     * Método utilizado para obter o preço total do produto (considerando os adicionai)
+     * @return o preço total do produto
+     */
     public double getPrecoTotal() {
         return precoBase;
     }
 
-   
 
-    // Setters
-
+    /**
+     * Método utilizado para definir o valor do reajuste anual do produto
+     * @param valorReajusteAnual : Valor do reajuste anual
+     * @return o preço total do produto
+     */
     public void setValorReajusteAnual(double valorReajusteAnual) {
         this.valorReajusteAnual = valorReajusteAnual;
     }
 
-    // Reajusta preço do produto
+    /**
+     * Método utilizado para reajustar o preço anual
+     */
 
     public void reajustarPrecoAnual() {
         this.precoBase = getPrecoBase() + (getPrecoBase() * this.valorReajusteAnual) / 100;
     }
 
-    // Descrição do produto
+    /**
+     * Descrição do produto
+     * @return a descrição do produto
+     */
 
     public abstract String descricao();
 

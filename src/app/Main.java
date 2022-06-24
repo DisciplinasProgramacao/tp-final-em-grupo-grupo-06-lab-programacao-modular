@@ -1,6 +1,7 @@
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import Adicionais.Adicional;
 import cliente.Clientes;
@@ -78,6 +79,18 @@ public class Main {
         clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
         clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
         clientesDao.add(new Clientes(Utilitario.gerarNome(),Utilitario.gerarCPF()));
+
+
+        List<Clientes> clientes = clientesDao.getAll();
+
+        System.out.println(clientes.stream()
+        .map( c -> c.toString() )
+        .reduce((a,b) -> a.concat("\n"+b))
+        .get());
+
+
+        
+
         /*
          * cliente.solicitarExtratoCompleto(pedido);
          * 

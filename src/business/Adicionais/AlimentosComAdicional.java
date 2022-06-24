@@ -1,7 +1,5 @@
 package Adicionais;
 
-import produtos.Alimentos;
-
 public interface AlimentosComAdicional  {
 
     public double getAdicionais();

@@ -103,6 +103,7 @@ public class ClientesDAO implements DAO<Clientes, String> {
 		}
 	}
 	
+	
 	private void close() throws IOException {
 		outputFile.close();
 		fos.close();

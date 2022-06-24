@@ -20,8 +20,8 @@ public class ClientesDAO implements DAO<Clientes, String> {
 
 	public ClientesDAO(String filename) throws IOException {
 		file = new File(filename);
-		if (file.exists())
-			file.delete();
+		/*if (file.exists())
+			file.delete();*/
 		fos = new FileOutputStream(file, false); 
 		outputFile = new ObjectOutputStream(fos);
 	}
@@ -110,7 +110,7 @@ public class ClientesDAO implements DAO<Clientes, String> {
 	}
 
 	@Override
-	protected void finalize() throws Throwable {
+	public void finalize() throws Throwable {
 		this.close();
 	}
 

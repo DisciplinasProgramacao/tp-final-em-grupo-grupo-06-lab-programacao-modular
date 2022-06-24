@@ -37,6 +37,9 @@ public class Pedidos {
         this.dataDeRealizacao = dataProduto;
 
     }
+    public LocalDateTime getDataRealizacao(){
+        return this.dataDeRealizacao;
+    }
 
     /**
      * Método utilizado para obter o preço total do pedido
